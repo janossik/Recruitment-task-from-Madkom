@@ -1,5 +1,7 @@
+import { RootState } from "app/store";
 import { useGetBooksQuery } from "app/books";
 import BookCard from "components/BookCard";
+import { useSelector, useDispatch } from "react-redux";
 
 const Home = () => {
   const { data, error, isLoading, isError } = useGetBooksQuery({});
@@ -13,13 +15,33 @@ const Home = () => {
         * `DODAJ DO KOSZYKA`, który będzie dodawał konkretną pozycję do koszyka.
     * przycisk, który umożliwia przejście do koszyka.
   */
+  /*   const count = useSelector((state: RootState) => state.shoppingCard.value);
+  const dispatch = useDispatch(); */
   return (
     <>
+      {/*       <div>
+        <button
+          onClick={() => {
+            dispatch(decrement());
+          }}
+        >
+          -
+        </button>
+        {count}
+        <button
+          onClick={() => {
+            dispatch(increment());
+          }}
+        >
+          +
+        </button>
+      </div> */}
       {isLoading && <p>Loading...</p>}
+
       {isError && <p>{JSON.stringify(error)}</p>}
       <section className="grid py-5 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
         {data?.data?.map((book) => (
-          <BookCard {...book} />
+          <BookCard key={book.id} {...book} />
         ))}
       </section>
     </>
