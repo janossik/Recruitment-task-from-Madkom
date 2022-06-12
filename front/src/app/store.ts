@@ -1,13 +1,13 @@
 import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit";
 import { setupListeners } from "@reduxjs/toolkit/query";
 import { booksApi } from "./books";
-import shoppingCard from "./shoppingCard";
+import cart from "./cart";
 import { debounce } from "debounce";
 import { loadState, saveState } from "utils";
 
 export const store = configureStore({
   reducer: {
-    shoppingCard: shoppingCard,
+    cart: cart,
     [booksApi.reducerPath]: booksApi.reducer,
   },
   preloadedState: loadState(),
@@ -20,8 +20,8 @@ store.subscribe(
   // we use debounce to save the state once each 500ms
   // for better performances in case multiple changes occur in a short time
   debounce(() => {
-    const { shoppingCard } = store.getState();
-    saveState({ shoppingCard });
+    const { cart } = store.getState();
+    saveState({ cart });
   }, 500)
 );
 export type AppDispatch = typeof store.dispatch;

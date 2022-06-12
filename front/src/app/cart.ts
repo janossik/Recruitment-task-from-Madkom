@@ -1,16 +1,16 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { BookProps } from "types";
 
-export interface ShoppingCardState {
+export interface CartState {
   booksInCart: { [key: string | number]: { count: number; book: BookProps } };
 }
 
-const initialState: ShoppingCardState = {
+const initialState: CartState = {
   booksInCart: {},
 };
 
-export const ShoppingCardSlice = createSlice({
-  name: "counter",
+export const CartSlice = createSlice({
+  name: "cart",
   initialState,
   reducers: {
     addBookToCart: (state, action: PayloadAction<BookProps>) => {
@@ -33,9 +33,23 @@ export const ShoppingCardSlice = createSlice({
         }
       }
     },
+    setBookInCart: (
+      state,
+      action: PayloadAction<{ count: number; book: BookProps }>
+    ) => {
+      if (action.payload.count === 0) {
+        delete state.booksInCart[action.payload.book.id];
+      } else {
+        state.booksInCart[action.payload.book.id] = {
+          count: action.payload.count,
+          book: action.payload.book,
+        };
+      }
+    },
   },
 });
 
-export const { addBookToCart } = ShoppingCardSlice.actions;
+export const { addBookToCart, removeBookFromCart, setBookInCart } =
+  CartSlice.actions;
 
-export default ShoppingCardSlice.reducer;
+export default CartSlice.reducer;
