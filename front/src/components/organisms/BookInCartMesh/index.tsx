@@ -34,7 +34,7 @@ const BookInCartMesh = ({ preview }: { preview?: boolean }) => {
                     <Button onClick={() => remove(currentBook.book)}>-</Button>
                   </div>
                   {preview ? (
-                    <div>{currentBook.count}</div>
+                    <div>{currentBook.quantity}</div>
                   ) : (
                     <div className="py-4">
                       <input
@@ -57,7 +57,7 @@ const BookInCartMesh = ({ preview }: { preview?: boolean }) => {
                       focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none
                     "
                         type="number"
-                        value={currentBook.count}
+                        value={currentBook.quantity}
                         onChange={({ currentTarget: { valueAsNumber } }) => {
                           if (
                             valueAsNumber < 0 ||
