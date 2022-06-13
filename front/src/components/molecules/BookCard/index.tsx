@@ -11,9 +11,9 @@ const BookCard = (props: BookProps) => {
       <img
         src={props.cover_url}
         alt={props.title}
-        className="lg:h-auto lg:w-48 flex-none bg-cover text-center overflow-hidden"
+        className="h-auto lg:w-48 flex-none bg-cover text-center overflow-hidden"
       />
-      <div className=" bg-white  p-4 flex flex-col justify-between leading-normal">
+      <div className="flex flex-col bg-white p-4 justify-between leading-normal">
         <div className="mb-8">
           <h3 className="text-gray-900 font-bold text-xl mb-2">
             {props.title}

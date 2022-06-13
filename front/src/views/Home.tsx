@@ -11,7 +11,7 @@ const Home = () => {
       {isError && (
         <div className="flex items-center">{JSON.stringify(error)}</div>
       )}
-      <section className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+      <section className="grid sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">
         {data?.data?.map((book) => (
           <BookCard key={book.id} {...book} />
         ))}
