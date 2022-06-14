@@ -12,7 +12,7 @@ const PreviewCart = () => {
       <div className="flex font-bold items-center">
         <span className="mr-auto">Twój koszyk</span>
         <span className="ml-auto text-sm">
-          WARTOŚĆ KOSZYKA {printPrice(fullPrice)}
+          Wartość koszyka {printPrice(fullPrice)}
         </span>
       </div>
       <BookInCartMesh preview />

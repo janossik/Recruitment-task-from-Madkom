@@ -12,11 +12,15 @@ const useCart = () => {
       prev + booksInCart[curr].quantity * booksInCart[curr].book.price,
     0
   );
+  const quantity = bookIDs.reduce(
+    (prev, curr) => prev + booksInCart[curr].quantity,
+    0
+  );
   const add = (book: BookProps) => dispatch(addBookToCart(book));
   const remove = (book: BookProps) => dispatch(removeBookFromCart(book));
   const set = (book: BookProps, quantity: number) =>
     dispatch(setBookInCart({ quantity, book }));
-  return { booksInCart, bookIDs, fullPrice, add, remove, set };
+  return { booksInCart, bookIDs, quantity, fullPrice, add, remove, set };
 };
 
 export default useCart;

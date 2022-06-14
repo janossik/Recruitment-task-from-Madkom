@@ -7,7 +7,7 @@ const Layout = () => {
       <header>
         <Navigation />
       </header>
-      <main className="py-10 px-10 sm:px-12 lg:px-8 xl:px-20 2xl:px-24">
+      <main className="py-10 px-6 sm:px-12 lg:px-8 xl:px-20 2xl:px-24">
         <Outlet />
       </main>
     </>

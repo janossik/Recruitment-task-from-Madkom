@@ -4,7 +4,7 @@ const CustomNavLink = ({ children, ...rest }: NavLinkProps) => (
   <NavLink
     {...rest}
     className={({ isActive }) =>
-      `${rest.className} px-5 py-1 transition ease-in-out ${
+      `px-5 py-1 transition ease-in-out ${rest.className} ${
         isActive ? "text-gray-800" : "hover:text-blue-500"
       }`
     }

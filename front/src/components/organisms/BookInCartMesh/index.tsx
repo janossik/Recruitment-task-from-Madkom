@@ -24,52 +24,28 @@ const BookInCartMesh = ({ preview }: { preview?: boolean }) => {
                 <img
                   src={currentBook.book.cover_url}
                   alt={currentBook.book.title}
-                  className="h-32 sm:h-64 lg:h-auto lg:w-48 flex-none bg-cover text-center overflow-hidden"
+                  className="h-32 flex-none bg-cover text-center overflow-hidden"
                 />
               )}
               <div>
-                <p className="text-sm">{currentBook.book.title}</p>
-                <div className="flex flex-row items-center gap-2 ml-auto pt-2">
+                <p className="text-md font-semibold">
+                  {currentBook.book.title}
+                </p>
+                <div className="flex ml-auto flex-row items-center gap-2">
                   <div>
                     <Button onClick={() => remove(currentBook.book)}>-</Button>
                   </div>
-                  {preview ? (
-                    <div>{currentBook.quantity}</div>
-                  ) : (
-                    <div className="py-4">
-                      <input
-                        className="
-                      form-control
-                      appearance-none
-                      block
-                      w-16
-                      px-3
-                      py-1.5
-                      text-base
-                      font-normal
-                      text-gray-700
-                      bg-white bg-clip-padding
-                      border border-solid border-gray-300
-                      rounded
-                      transition
-                      ease-in-out
-                      m-0
-                      focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none
-                    "
-                        type="number"
-                        value={currentBook.quantity}
-                        onChange={({ currentTarget: { valueAsNumber } }) => {
-                          if (
-                            valueAsNumber < 0 ||
-                            Number.isNaN(valueAsNumber)
-                          ) {
-                            return;
-                          }
-                          set(currentBook.book, valueAsNumber);
-                        }}
-                      />
-                    </div>
-                  )}
+                  <div className="py-2">
+                    <input
+                      className="form-control appearance-none block w-16 px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                      type="number"
+                      value={currentBook.quantity}
+                      onChange={({ currentTarget: { valueAsNumber } }) =>
+                        !(valueAsNumber < 0 || Number.isNaN(valueAsNumber)) &&
+                        set(currentBook.book, valueAsNumber)
+                      }
+                    />
+                  </div>
                   <div>
                     <Button onClick={() => add(currentBook.book)}>+</Button>
                   </div>
