@@ -1,12 +1,6 @@
-import { ClassAttributes, InputHTMLAttributes } from "react";
+import { InputFieldProps } from "./InputField.types";
 
-const InputField = ({
-  label,
-  name,
-  ...rest
-}: JSX.IntrinsicAttributes &
-  ClassAttributes<HTMLInputElement> &
-  InputHTMLAttributes<HTMLInputElement> & { label: string }) => {
+const InputField = ({ label, name, ...rest }: InputFieldProps) => {
   return (
     <label className="block text-gray-700 text-sm font-semibold mb-2">
       {label}

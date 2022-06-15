@@ -1,16 +1,12 @@
 import Button from "components/atoms/Button";
 import useCart from "hooks/useCart";
-import { BooksInCartProps } from "types";
+import { BookInCartMeshProps } from "./BookInCartMesh.types";
 
 const BookInCartMesh = ({
   preview,
   hiddenActions,
   mockBooksInCart,
-}: {
-  mockBooksInCart?: BooksInCartProps;
-  preview?: boolean;
-  hiddenActions?: boolean;
-}) => {
+}: BookInCartMeshProps) => {
   const { bookIDs, booksInCart, remove, set, add } = useCart();
   const books = mockBooksInCart || booksInCart;
   return (

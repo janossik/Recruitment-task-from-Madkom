@@ -1,17 +1,10 @@
-import { RootState } from "app/store";
 import { setPurchaseFormInputField } from "app/purchaseForm";
+import { RootState } from "app/store";
 import InputField from "components/atoms/InputField";
-import { ClassAttributes, InputHTMLAttributes } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { InputFieldPurchaseFormProps } from "./InputFieldPurchaseForm.types";
 
-const InputFieldPurchaseForm = (
-  props: JSX.IntrinsicAttributes &
-    ClassAttributes<HTMLInputElement> &
-    InputHTMLAttributes<HTMLInputElement> & {
-      label: string;
-      name: "first_name" | "last_name" | "city" | "zip_code";
-    }
-) => {
+const InputFieldPurchaseForm = (props: InputFieldPurchaseFormProps) => {
   const state = useSelector((state: RootState) => state.purchaseForm);
   const dispatch = useDispatch();
   const currentName = props.name as keyof typeof state;
