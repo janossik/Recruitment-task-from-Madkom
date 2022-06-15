@@ -4,12 +4,12 @@ import { booksApi } from "./books";
 import cart from "./cart";
 import { debounce } from "debounce";
 import { loadState, saveState } from "utils";
-import buyForm from "./buyForm";
+import purchaseForm from "./purchaseForm";
 
 export const store = configureStore({
   reducer: {
     cart: cart,
-    buyForm: buyForm,
+    purchaseForm: purchaseForm,
     [booksApi.reducerPath]: booksApi.reducer,
   },
   preloadedState: loadState(),

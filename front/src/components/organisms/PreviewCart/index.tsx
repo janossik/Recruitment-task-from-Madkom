@@ -18,11 +18,16 @@ const PreviewCart = () => {
       <BookInCartMesh preview />
       <div className="flex justify-around">
         <Link to="/cart">
-          <Button className="bg-transparent hover:bg-blue-500 text-blue-700 text-xs font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded uppercase ">
+          <Button className="bg-transparent hover:bg-blue-500 text-blue-700 text-xs font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded uppercase">
             Sprawdź koszyk
           </Button>
         </Link>
-        <Button>Do kasy</Button>
+        <Link
+          to="/order"
+          className={fullPrice <= 0 ? "pointer-events-none" : ""}
+        >
+          <Button disabled={fullPrice <= 0}>Do kasy</Button>
+        </Link>
       </div>
     </div>
   );

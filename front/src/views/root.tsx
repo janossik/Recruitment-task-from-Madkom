@@ -1,8 +1,9 @@
 import Layout from "components/Layout";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Buy from "./Buy";
+import Order from "./Order";
 import Cart from "./Cart";
 import Home from "./Home";
+import ErrorInfo from "components/molecules/ErrorInfo";
 
 const Root = () => {
   return (
@@ -11,7 +12,15 @@ const Root = () => {
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="cart" element={<Cart />} />
-          <Route path="buy" element={<Buy />} />
+          <Route path="order" element={<Order />} />
+          <Route
+            path="*"
+            element={
+              <ErrorInfo>
+                404 <br /> Niestety nie mamy takiej strony
+              </ErrorInfo>
+            }
+          />
         </Route>
       </Routes>
     </BrowserRouter>

@@ -11,7 +11,10 @@ const Cart = () => {
       <BookInCartMesh />
       <footer className="flex flex-col pt-8 justify-around items-center gap-5">
         <div className="text-xl">Wartość koszyka {printPrice(fullPrice)}</div>
-        <Link to="/buy" className={fullPrice <= 0 ? "pointer-events-none" : ""}>
+        <Link
+          to="/order"
+          className={fullPrice <= 0 ? "pointer-events-none" : ""}
+        >
           <Button disabled={fullPrice <= 0}>Dalej</Button>
         </Link>
       </footer>
