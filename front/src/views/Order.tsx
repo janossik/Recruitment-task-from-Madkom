@@ -1,5 +1,5 @@
-import { resetBuyForm } from "app/purchaseForm";
 import { resetCartBook } from "app/cart";
+import { resetPurchaseForm } from "app/purchaseForm";
 import { RootState } from "app/store";
 import IF from "components/atoms/IF";
 import ErrorInfo from "components/molecules/ErrorInfo";
@@ -21,7 +21,7 @@ const FailureOrder = () => (
 
 const SucessfulOrder = (props: ResultOrder | null) => (
   <div>
-    <p className="text-lg font-bold">Dziekujemy za zamówienia</p>
+    <p className="text-lg font-bold">Dziekujemy za zamówienie</p>
     <hr />
     <div className="py-4">
       <div className="text-xl pb-3">Twoje zamówienie</div>
@@ -74,7 +74,7 @@ const Order = () => {
         )
       );
     } else {
-      dispatch(resetBuyForm());
+      dispatch(resetPurchaseForm());
     }
   };
 

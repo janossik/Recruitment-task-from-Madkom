@@ -1,5 +1,5 @@
 import { RootState } from "app/store";
-import { setBuyFormInputField } from "app/purchaseForm";
+import { setPurchaseFormInputField } from "app/purchaseForm";
 import InputField from "components/atoms/InputField";
 import { ClassAttributes, InputHTMLAttributes } from "react";
 import { useSelector, useDispatch } from "react-redux";
@@ -21,7 +21,7 @@ const InputFieldPurchaseForm = (
       required
       value={state[currentName]}
       onChange={({ currentTarget: { value } }) => {
-        dispatch(setBuyFormInputField({ value, field: currentName }));
+        dispatch(setPurchaseFormInputField({ value, field: currentName }));
       }}
     />
   );

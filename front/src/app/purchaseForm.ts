@@ -18,8 +18,8 @@ export const purchaseForm = createSlice({
   name: "purchaseForm",
   initialState,
   reducers: {
-    resetBuyForm: () => initialState,
-    setBuyFormInputField: (
+    resetPurchaseForm: () => initialState,
+    setPurchaseFormInputField: (
       state,
       action: PayloadAction<{ value: string; field: keyof typeof initialState }>
     ) => {
@@ -32,6 +32,7 @@ export const purchaseForm = createSlice({
   },
 });
 
-export const { setBuyFormInputField, resetBuyForm } = purchaseForm.actions;
+export const { setPurchaseFormInputField, resetPurchaseForm } =
+  purchaseForm.actions;
 
 export default purchaseForm.reducer;
